@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thomas Giglia · Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio: Engineers Without Borders, Tufts Electric Racing (FSAE), and engineering coursework in design, FEA, fluids, heat transfer and robotics.">
+<meta property="og:title" content="Thomas Giglia">
+<meta property="og:description" content="Mechanical engineering portfolio: Engineers Without Borders, Tufts Electric Racing (FSAE), and engineering coursework in design, FEA, fluids, heat transfer and robotics.">
+<meta property="og:image" content="/assets/img/home/cover.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📁</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="index.html">📁 Thomas Giglia</a></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+<div class="cover"><img src="assets/img/home/cover.webp" alt="" style="object-position:center 60%"></div>
+<main class="page">
+<div class="icon" aria-hidden="true">📁</div>
+<h1 class="title">Thomas Giglia</h1>
+<div class="props">
+<div class="prop"><div class="k">🎓 School</div><div class="v">Tufts University</div></div>
+<div class="prop"><div class="k">⚙️ Major</div><div class="v">Mechanical Engineering</div></div>
+<div class="prop"><div class="k">🛠️ Tools</div><div class="v"><span class="tag t-gray">SolidWorks</span><span class="tag t-gray">Onshape</span><span class="tag t-gray">COMSOL</span><span class="tag t-gray">MATLAB</span><span class="tag t-gray">Python</span><span class="tag t-gray">MicroPython</span><span class="tag t-gray">C++</span><span class="tag t-gray">Arduino</span></div></div>
+<div class="prop"><div class="k">🔗 Links</div><div class="v"><a href="https://github.com/thomas-giglia">GitHub</a></div></div>
+</div><hr><p class="home-intro">I’m a mechanical engineering student at Tufts. This is a collection of what I’ve designed, built, simulated and tested, from water systems for a community in the Ecuadorian Amazon to parts on an electric race car.</p>
+<div class="filters" role="toolbar" aria-label="Filter projects">
+  <button type="button" data-f="all" aria-pressed="true">All</button>
+  <button type="button" data-f="ewb" aria-pressed="false">💧 Engineers Without Borders</button>
+  <button type="button" data-f="racing" aria-pressed="false">⚡ Electric Racing</button>
+  <button type="button" data-f="course" aria-pressed="false">📚 Coursework</button>
+</div>
+<div class="gallery big" id="projects"><a class="card" data-cat="ewb" href="projects/ewb-ecuador/index.html"><div class="prev"><img src="assets/img/ewb-ecuador/pavilion.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">💧 Improving Water Infrastructure in Santa Estefanía, Ecuador</div><div class="desc">Rainwater catchment, storage and filtration for a 140-person Amazon community: a scale-model prototype, then a 25-year daily mass-balance model to size pavilion tanks.</div><div class="tags"><span class="tag t-blue">Engineers Without Borders</span></div><div class="when">Spring 2025 – present</div></div></a>
+<a class="card" data-cat="racing" href="projects/tufts-electric-racing/index.html"><div class="prev"><img src="assets/img/tufts-electric-racing/fs_sprocket_photo.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">⚡ Tufts Electric Racing: Design &amp; FEA</div><div class="desc">Formula SAE Electric: a machined motor sprocket adapter, a laser-cut cockpit floor and firewall fasteners I designed, plus brakes, pedals and chassis packaging work.</div><div class="tags"><span class="tag t-orange">Electric Racing</span></div><div class="when">Fall 2024 – present</div></div></a>
+<a class="card" data-cat="course" href="projects/me41-design-for-deflection/index.html"><div class="prev contain"><img src="assets/img/me41-design-for-deflection/fh_cover.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🪝 Design for Deflection: “The Fishhook”</div><div class="desc">An aluminum spring designed in SolidWorks FEA to deflect 0.400″ at 100 lbf without yielding. On the Instron it measured 252.4 lbf/in against a 250 target, a 0.96% error.</div><div class="tags"><span class="tag t-green">Coursework</span></div><div class="when">Fall 2025</div></div></a>
+<a class="card" data-cat="course" href="projects/me51/index.html"><div class="prev"><img src="assets/img/me51/cover.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🌊 Fluid Dynamics &amp; Heat Transfer (ME 51)</div><div class="desc">Labs and take-home midterms from ME 51. Each one pairs a hands-on experiment with an analytical model and a COMSOL simulation, then compares all three.</div><div class="tags"><span class="tag t-green">Coursework</span></div><div class="when">Fall 2025 · 8 write-ups</div></div></a>
+<a class="card" data-cat="course" href="projects/me35/index.html"><div class="prev"><img src="assets/img/me35/cover.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🤖 Robotics &amp; Mechatronics (ME 35)</div><div class="desc">Weekly build projects from ME 35: MicroPython on ESP32 boards, servos and gearing, I²C sensors, web APIs and a little machine learning.</div><div class="tags"><span class="tag t-green">Coursework</span></div><div class="when">Fall 2026 · 3 write-ups</div></div></a>
+<a class="card" data-cat="course" href="projects/me40-extendo-sprayer/index.html"><div class="prev contain"><img src="assets/img/me40-extendo-sprayer/sp_final.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🧴 Extendo-Sprayer</div><div class="desc">An assistive device that lets a user with limited shoulder mobility apply detangling spray on her own: a relocated trigger, a curved nozzle extension and printed clips.</div><div class="tags"><span class="tag t-green">Coursework</span></div><div class="when">Spring 2025</div></div></a>
+<a class="card" data-cat="course" href="projects/me40-staple-gun-teardown/index.html"><div class="prev"><img src="assets/img/me40-staple-gun-teardown/sg_teardown.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🔩 Cordless Staple Gun Teardown</div><div class="desc">A full product decomposition of a 4 V cordless staple gun: every part’s material and process, the motor → planetary gearbox → spring mechanism, and its affordances.</div><div class="tags"><span class="tag t-green">Coursework</span></div><div class="when">Spring 2025</div></div></a>
+<a class="card" data-cat="ewb" href="projects/ewb-greenhouse/index.html"><div class="prev"><img src="assets/img/ewb-greenhouse/gh_cube.webp" alt="" loading="lazy"></div><div class="meta"><div class="nm">🌱 Greenhouse Auto-Watering: “The Cube”</div><div class="desc">A modular, gravity-fed watering cube driven by soil-moisture sensing, with stepper-actuated valves and an Arduino controller.</div><div class="tags"><span class="tag t-blue">Engineers Without Borders</span></div><div class="when">Fall 2023</div></div></a></div>
+<h2 class="h1" id="more">More Projects</h2>
+<p class="muted" style="font-size:14px">Smaller projects and class work that don’t have their own page yet.</p>
+<div class="tablewrap"><table class="more-table"><thead><tr><th>Project</th><th>Course / context</th><th>Tools</th></tr></thead><tbody><tr class="grp"><td colspan="3">Engineers Without Borders</td></tr>
+<tr><td>Borehole &amp; tap stands</td><td>Solomoni, Malawi</td><td>EWB Malawi program</td></tr>
+<tr><td>Rainwater catchment for the greenhouse</td><td>EWB Greenhouse</td><td></td></tr>
+<tr><td><a href="https://cad.onshape.com/documents/b4a08b40701a3d4e6b7f10f0/w/86b35d23728e7b4f7eaf23ab/e/f7ae2c9f1929b96d2dd5a360" target="_blank" rel="noopener">Gutter guards ↗</a></td><td>EWB Ecuador</td><td>Onshape</td></tr>
+<tr><td><a href="https://cad.onshape.com/documents/e79ef146feb340e7ad18759e/w/f6dc32e2e6e86a3b0d9915f8/e/5ca6c522a7c3660410badf00" target="_blank" rel="noopener">CAD design ↗</a></td><td>EWB Ecuador</td><td>Onshape</td></tr>
+<tr class="grp"><td colspan="3">Engineering coursework</td></tr>
+<tr><td>Senior capstone: user-tracking motorized TV mount</td><td>Capstone</td><td>In progress</td></tr>
+<tr><td>osu! rhythm game</td><td>EN 1</td><td>MATLAB</td></tr>
+<tr><td>Ski simulator</td><td>EN 1 final project</td><td>MATLAB</td></tr>
+<tr><td><a href="https://cad.onshape.com/documents/c0541bb49637815bbb3b67ca/w/a924d70a0f5b96b901141d59/e/0f79c07d80d4a0967015975f" target="_blank" rel="noopener">Foosball table ↗</a></td><td>ME 10</td><td>Onshape</td></tr>
+<tr><td><a href="https://cad.onshape.com/documents/8cca546e01f81f87148b04a6/w/adc2f371e9ed7989b2bbe424/e/b46135316b7441cb239d726d" target="_blank" rel="noopener">Motor ↗</a></td><td>ME 40</td><td>Onshape</td></tr>
+<tr><td>Assorted CAD projects</td><td>ME 40</td><td>Onshape</td></tr>
+<tr><td>Simon Says</td><td>ME 30</td><td>MicroPython</td></tr>
+<tr><td>PopTheLock</td><td>ME 30</td><td>MicroPython</td></tr>
+<tr><td>Elphaba the Robot</td><td>ME 30</td><td>MicroPython, JavaScript, HTML</td></tr>
+<tr><td>Light-distance sensor</td><td></td><td></td></tr>
+<tr><td>Stop-sign manufacturing cell</td><td>Robotics</td><td>ABB RobotStudio</td></tr>
+<tr><td><a href="https://cad.onshape.com/documents/4499cec13bb087f62173842a/w/6bd385deaae599b03445d5d4/e/9e1b8de0c2db6bff5e9aac90" target="_blank" rel="noopener">Jeep Commander model ↗</a></td><td>CAD</td><td>Onshape</td></tr>
+<tr class="grp"><td colspan="3">Computer science</td></tr>
+<tr><td>SushiGo</td><td>CS</td><td>C++</td></tr>
+<tr><td>MetroSim</td><td>CS</td><td>C++</td></tr>
+<tr><td>Zap</td><td>CS</td><td>C++</td></tr>
+<tr><td>RPN calculator</td><td>CS</td><td>C++</td></tr>
+<tr><td>Gerp</td><td>CS</td><td>C++</td></tr>
+<tr class="grp"><td colspan="3">Side projects</td></tr>
+<tr><td>MWRTA route planner</td><td>Personal</td><td>JavaScript, HTML, Python</td></tr>
+<tr><td>NYT Letter Boxed solver</td><td>Personal</td><td>Python</td></tr>
+<tr><td>NYT Wordle solver</td><td>Personal</td><td>Python, C++</td></tr></tbody></table></div>
+</main>
+
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="assets/site.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>
