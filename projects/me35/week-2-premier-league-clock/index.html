@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2: Premier League O’Clock · Thomas Giglia</title>
+<meta name="description" content="A servo-driven clock with 2:1 gearing for a full 360° sweep. At the press of a button it points at the next Premier League matchup, pulled from a live API.">
+<meta property="og:title" content="Week 2: Premier League O’Clock">
+<meta property="og:description" content="A servo-driven clock with 2:1 gearing for a full 360° sweep. At the press of a button it points at the next Premier League matchup, pulled from a live API.">
+<meta property="og:image" content="/assets/img/me35-week-2-premier-league-clock/01.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏲️</text></svg>">
+<link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/katex/katex.min.css">
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="../../../index.html">📁 Thomas Giglia</a><span class="sep">/</span><a href="../../../index.html#course">Coursework</a><span class="sep">/</span><a href="../../../projects/me35/index.html">Robotics & Mechatronics</a><span class="sep">/</span><span class="cur">⏲️ Week 2: Premier League O’Clock</span></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+<main class="page nocover">
+<div class="icon" aria-hidden="true">⏲️</div>
+<h1 class="title">Week 2: Premier League O’Clock</h1>
+<div class="props">
+<div class="prop"><div class="k">📚 Course</div><div class="v">ME 35 Robotics & Mechatronics</div></div>
+<div class="prop"><div class="k">👥 Team</div><div class="v">Team project</div></div>
+<div class="prop"><div class="k">📅 Date</div><div class="v">Sep 2026</div></div>
+</div><hr>
+<div class="nb"><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/IMG_9344.jpg" id="3f3b673d-c853-8097-969d-f8a8b30cb436"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/01.webp" style="max-width:min(100%,692px)"/></figure><h1 class="" id="3f3b673d-c853-80b2-9482-ff746951e9dc">Overview:</h1><p class="" id="3f3b673d-c853-807d-b8c5-c2f79afb67e6">Using two servo motors, each with a gear ratio of 1:2, we achieved full 360 degree capability. Like a standard clock, we used a minute and hour hand to point to their respective values. In addition to the time, we added a push button to change the clock’s mode, and tell the user what next Premier League match scheduled is by pointing to the two teams playing.</p><h2 class="" id="3f3b673d-c853-80f1-a3d9-d8e7ac55dc08">Photos:</h2><div class="column-list" data-notion-column-list="" id="3f3b673d-c853-801c-a45a-d5781f78a533"><div class="column" data-notion-column-ratio="0.49999999999999994" id="3f3b673d-c853-8080-ae48-e346627c2ae6" style="width:49.99999999999999%"><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image.png" id="3f3b673d-c853-80ee-9df3-cb83d0817cb4"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/02.webp" style="max-width:min(100%,288px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%201.png" id="3f3b673d-c853-8028-a259-f988fb291897"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/03.webp" style="max-width:min(100%,235px)"/></figure></div><div class="column" data-notion-column-ratio="0.49999999999999994" id="3f3b673d-c853-80b2-b4c0-dc8d9b41e027" style="width:49.99999999999999%"><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%202.png" id="3f3b673d-c853-8046-9813-c1dabb437f6b"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/04.webp" style="max-width:min(100%,384px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%203.png" id="3f3b673d-c853-80ad-8dae-eee6c4cfad46"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/05.webp" style="max-width:min(100%,235px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%204.png" id="3f3b673d-c853-800b-b946-f712d0b84b29"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/06.webp" style="max-width:min(100%,496px)"/></figure></div></div><h1 class="" id="3f3b673d-c853-8079-89bb-c2be0f459613">Video Demo:</h1><div class="video-embed short"><iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy" src="https://www.youtube-nocookie.com/embed/voiaKa_X-8w" title="Video"></iframe></div><h1 class="" id="3f3b673d-c853-8017-8cb6-d61933d1fe41">Approach:</h1><p class="" id="3f3b673d-c853-80ed-974a-c33321a1a591">This specific clock design was not our first idea. When brainstorming interesting solutions for this open-ended prompt, we first decided to design and fabricate a linear clock. This clock would work with geared up servo motors moving a belt, which would move the minute and hour hand. Unfortunately, even after multiple iterations, the gearing for the belt drive proved to be complicated for the short deadline.</p><details class=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3f3b673d-c853-8040-9168-e3a359f29d00" style="display:inline-block">Linear clock</h2></summary><div class="indented"><div class="column-list" data-notion-column-list="" id="3f3b673d-c853-8024-86aa-d2a442e0c3f6"><div class="column" data-notion-column-ratio="0.5" id="3f3b673d-c853-80f5-91af-f7eca5bdf770" style="width:50%"><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%205.png" id="3f3b673d-c853-8021-9ed1-d63f3d599997"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/07.webp" style="max-width:min(100%,384px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%206.png" id="3f3b673d-c853-8076-a94f-ea42601acf2a"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/08.webp" style="max-width:min(100%,384px)"/></figure></div><div class="column" data-notion-column-ratio="0.5" id="3f3b673d-c853-8059-812c-c8bee26245be" style="width:50%"><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%207.png" id="3f3b673d-c853-8014-a73b-d5f56ef9e09b"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/09.webp" style="max-width:min(100%,1105px)"/></figure><p class="" id="3f3b673d-c853-804d-aa8e-fa5a7c3a58cb">
+</p></div></div><p class="" id="3f3b673d-c853-8077-be4e-d600eda66c94">The main issue the linear clock posed was the issue of length of the belt drive and torque. With a longer belt, the servo motors needed to produce more torque to actuate the movement. If we wanted to continue with the linear idea, we would have had to compress the number notches, leaving us with very little amount of error. Because of this, we decided to ditch the belts, and instead pivot to a geared servo that rotated a hand.</p><p class="" id="3f3b673d-c853-809b-83c7-d3b133b3d4e2">
+</p></div></details><h2 class="" id="3f3b673d-c853-80e6-9035-d98a7fdd8b17">Building the clock:</h2><p class="" id="3f3b673d-c853-80d5-8d96-e2fe876caace">The fabrication of the clock and its logic consisted of three major parts:</p><ol class="numbered-list" id="3f3b673d-c853-804b-93b2-c44159de6318" start="1" type="1"><li>Servo to Minute/hour hand mechanism</li></ol><ol class="numbered-list" id="3f3b673d-c853-801e-bb58-d10d515390f2" start="2" type="1"><li>ESP32 Logic + API call infrastructure</li></ol><ol class="numbered-list" id="3f3b673d-c853-8096-8883-f65817528fb9" start="3" type="1"><li>Fabrication of clock shell</li></ol><details class=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3f3b673d-c853-803a-80aa-f6f3e321ac42" style="display:inline-block">Hand Mechanism</h2></summary><div class="indented"><p class="" id="3f3b673d-c853-80f0-b040-d47e1e5f0d48">The gear mechanism consists of four gears, two 24 tooth and two 48 tooth gears. To get the hour and minute hand in the same axis, the orange gear goes through the sleeve of the blue gear. We encountered multiple challenges such as gear backlash, hour and minute hands slipping, and clearance issues. It took many iterations of trying different tooth quantities and dimensioning. </p><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%208.png" id="3f3b673d-c853-8003-82f9-eab02cee029f"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/10.webp" style="max-width:min(100%,447px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%209.png" id="3f3b673d-c853-80ab-befe-d0456e259060"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/11.webp" style="max-width:min(100%,447px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%2010.png" id="3f3b673d-c853-8001-8535-deeefea78c16"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/12.webp" style="max-width:min(100%,447px)"/></figure></div></details><details class=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3f3b673d-c853-802d-b1b9-e8a182e4825b" style="display:inline-block">Code</h2></summary><div class="indented"><p class="" id="3f3b673d-c853-8092-8cbd-fb8097b3cada">The logic behind the clock utilizes two API calls: <a href="http://TimeAPI.io">TimeAPI.io</a> and api.football-data.org. After the ESP32 connects to the Wi-Fi, it is able to sync the clock’s time. The clock will then do a calibration, the minute and hour hand will point to 12, 3, 6, 9, and then back to 12. This shows the user if the hands are calibrated correctly. After calibration, the hands will go to the current time. When the button is pressed, a button handler in the code will make the match requested flag turn to true. The clock is divided into 20 points for each team. When the match is requested, the two Premier League teams that have the next scheduled match are pointed to be the hour and minute hand. The football API call receives all of the next Premier League matches in the three weeks.</p><div class="codeblock"><div class="code-head"><span>Python</span><button class="copy" type="button">Copy</button></div><pre><code><span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urequests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">PIN_SERVO_HOUR</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># servo driving the hour hand, geared 2:1 for a 360-degree sweep</span>
+<span class="n">PIN_SERVO_MINUTE</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># servo driving the minute hand, geared 2:1 for a 360-degree sweep</span>
+<span class="n">PIN_LED_MODE</span> <span class="o">=</span> <span class="mi">2</span>          <span class="c1"># D2 - lights up while showing the PL matchup, off while showing normal time</span>
+<span class="n">PIN_BUTTON</span> <span class="o">=</span> <span class="mi">32</span>           <span class="c1"># D32 - button that triggers "show next match" mode (D34 has no internal pull-up, don't use it here)</span>
+
+<span class="c1"># Pulse width (ns) at each end of the servo's own travel (0-180 degrees on</span>
+<span class="c1"># the servo itself), which the 2:1 gearing turns into a full 0-360 degree</span>
+<span class="c1"># sweep of the clock hand. Swap min/max per servo if one runs backwards</span>
+<span class="c1"># relative to the other.</span>
+<span class="n">SERVO_HOUR_MIN_NS</span> <span class="o">=</span> <span class="mi">500_000</span>
+<span class="n">SERVO_HOUR_MAX_NS</span> <span class="o">=</span> <span class="mi">2_500_000</span>
+
+<span class="c1"># Calibration: degrees added to the commanded angle to correct for how the</span>
+<span class="c1"># horn/gear landed when it was mounted. Set via calibrate_servos() — command</span>
+<span class="c1"># fraction 0.0, measure how far off true 12 o'clock the hand sits and which</span>
+<span class="c1"># way, then adjust this value and re-run calibrate_servos() to confirm. If</span>
+<span class="c1"># nudging it the "obvious" direction makes it worse, this rig's gearing</span>
+<span class="c1"># inverts rotation sense, so flip the sign instead.</span>
+<span class="c1"># Only used for the hour servo - the minute servo's calibration is the</span>
+<span class="c1"># MINUTE_CALIBRATION table below instead.</span>
+<span class="n">SERVO_HOUR_OFFSET_DEG</span> <span class="o">=</span> <span class="mf">315.0</span>
+
+<span class="c1"># Calibration: multiplier on the commanded angle to correct a proportional</span>
+<span class="c1"># under/over-rotation (e.g. the real gear ratio isn't exactly 2:1). Found by</span>
+<span class="c1"># jogging to a known angle (see ServoTest.py) and comparing to the measured</span>
+<span class="c1"># result: scale = commanded_degrees / actual_measured_degrees.</span>
+<span class="c1"># Only used for the hour servo - the minute servo's response turned out to be</span>
+<span class="c1"># non-linear (see MINUTE_CALIBRATION below), so a single scale number can't</span>
+<span class="c1"># describe it and it uses a measured table + interpolation instead.</span>
+<span class="n">SERVO_HOUR_SCALE</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Calibration table for the minute servo: measured (minute-mark, pulse ns)</span>
+<span class="c1"># points from raw-pulse probing in ServoTest.py, since it takes progressively</span>
+<span class="c1"># more ns per minute as the pulse gets longer - not a straight line. The</span>
+<span class="c1"># floor of this servo's pulse range (~300,000ns) lands at minute 13, not</span>
+<span class="c1"># minute 0, so minutes 0-13 are unreachable on this lap; they're reached</span>
+<span class="c1"># instead by continuing a bit past a full turn, which is why the table goes</span>
+<span class="c1"># up to "minute 75" (= minute 15 of the next lap around). Re-measure and</span>
+<span class="c1"># update this if the servo/gearing/mounting ever changes.</span>
+<span class="n">MINUTE_CALIBRATION</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">300_000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">390_000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">850_000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">1_450_000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">2_000_000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">2_450_000</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># If the horn/gear ever slips or gets remounted, the whole table above shifts</span>
+<span class="c1"># by a fixed amount without changing its shape - correct for that here rather</span>
+<span class="c1"># than re-measuring everything. In minutes (1 min = 6 degrees). Positive =</span>
+<span class="c1"># hand was sitting clockwise of target, negative = counter-clockwise.</span>
+<span class="c1"># e.g. hand sat 90 deg (15 min) counter-clockwise of target -&gt; +15 to correct.</span>
+<span class="n">MINUTE_CALIBRATION_SHIFT_MIN</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">DEBOUNCE_MS</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">MATCH_DISPLAY_SECONDS</span> <span class="o">=</span> <span class="mi">10</span>   <span class="c1"># how long to hold the team positions before returning to clock mode</span>
+<span class="n">CLOCK_UPDATE_SECONDS</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># how often to nudge the hands while in clock mode</span>
+<span class="n">STARTUP_TEST_STEP_SECONDS</span> <span class="o">=</span> <span class="mf">1.5</span>   <span class="c1"># pause between each position during the startup hand test</span>
+
+<span class="c1"># Premier League clubs in physical clockwise order around the dial, starting</span>
+<span class="c1"># from the marker nearest 12 o'clock. This is NOT alphabetical - it matches</span>
+<span class="c1"># how the teams are actually printed on the face. Update this if the face is</span>
+<span class="c1"># ever redone (e.g. promotions/relegations changing which teams are on it).</span>
+<span class="n">PREMIER_LEAGUE_TEAMS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"Manchester City"</span><span class="p">,</span> <span class="s2">"Arsenal"</span><span class="p">,</span> <span class="s2">"Hull City"</span><span class="p">,</span> <span class="s2">"Chelsea"</span><span class="p">,</span> <span class="s2">"Brentford"</span><span class="p">,</span>
+    <span class="s2">"Liverpool"</span><span class="p">,</span> <span class="s2">"Newcastle United"</span><span class="p">,</span> <span class="s2">"Everton"</span><span class="p">,</span> <span class="s2">"Leeds United"</span><span class="p">,</span> <span class="s2">"Brighton &amp; Hove Albion"</span><span class="p">,</span>
+    <span class="s2">"Manchester United"</span><span class="p">,</span> <span class="s2">"Sunderland"</span><span class="p">,</span> <span class="s2">"Crystal Palace"</span><span class="p">,</span> <span class="s2">"Ipswich Town"</span><span class="p">,</span> <span class="s2">"AFC Bournemouth"</span><span class="p">,</span>
+    <span class="s2">"Nottingham Forest"</span><span class="p">,</span> <span class="s2">"Tottenham Hotspur"</span><span class="p">,</span> <span class="s2">"Aston Villa"</span><span class="p">,</span> <span class="s2">"Fulham"</span><span class="p">,</span> <span class="s2">"Coventry City"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Calibration: degrees added to every team's dial position, to correct for</span>
+<span class="c1"># how the printed face sits relative to true 12 o'clock (independent of the</span>
+<span class="c1"># hour/minute servo mounting offsets above - this is about the face artwork,</span>
+<span class="c1"># shared by both hands since they point at the same team ring). Found the</span>
+<span class="c1"># same way as the servo offsets: point at team index 0 (first team above),</span>
+<span class="c1"># measure how far off true 12 it sits and which way, then adjust.</span>
+<span class="n">TEAM_DIAL_OFFSET_DEG</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Servos + LEDs</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">hour_servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">PIN_SERVO_HOUR</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duty_u16</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">minute_servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">PIN_SERVO_MINUTE</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duty_u16</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">led_mode</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">PIN_LED_MODE</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_mode_led</span><span class="p">(</span><span class="n">on</span><span class="p">):</span>
+    <span class="n">led_mode</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">on</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">current_time</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"[</span><span class="si">{:02d}</span><span class="s2">:</span><span class="si">{:02d}</span><span class="s2">:</span><span class="si">{:02d}</span><span class="s2">] </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">msg</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_position</span><span class="p">(</span><span class="n">servo</span><span class="p">,</span> <span class="n">fraction</span><span class="p">,</span> <span class="n">min_ns</span><span class="p">,</span> <span class="n">max_ns</span><span class="p">,</span> <span class="n">offset_deg</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Point a geared, 360-degree servo to `fraction` (0.0-1.0) of a full turn,</span>
+<span class="sd">    corrected by `scale` (proportional under/over-rotation) then shifted by</span>
+<span class="sd">    `offset_deg` (to correct for how it was mounted)."""</span>
+    <span class="n">adjusted</span> <span class="o">=</span> <span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">offset_deg</span> <span class="o">/</span> <span class="mf">360.0</span><span class="p">)</span> <span class="o">%</span> <span class="mf">1.0</span>
+    <span class="n">pulse_ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_ns</span> <span class="o">+</span> <span class="n">adjusted</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_ns</span> <span class="o">-</span> <span class="n">min_ns</span><span class="p">))</span>
+    <span class="n">servo</span><span class="o">.</span><span class="n">duty_ns</span><span class="p">(</span><span class="n">pulse_ns</span><span class="p">)</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> servo -&gt; </span><span class="si">{</span><span class="n">adjusted</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">360</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg (target </span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">360</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg, scale </span><span class="si">{</span><span class="n">scale</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, offset </span><span class="si">{</span><span class="n">offset_deg</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_hour_position</span><span class="p">(</span><span class="n">fraction</span><span class="p">):</span>
+    <span class="n">set_position</span><span class="p">(</span><span class="n">hour_servo</span><span class="p">,</span> <span class="n">fraction</span><span class="p">,</span> <span class="n">SERVO_HOUR_MIN_NS</span><span class="p">,</span> <span class="n">SERVO_HOUR_MAX_NS</span><span class="p">,</span> <span class="n">SERVO_HOUR_OFFSET_DEG</span><span class="p">,</span> <span class="n">SERVO_HOUR_SCALE</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Hour"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate_ns</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Piecewise-linear lookup: find where x falls between two calibrated</span>
+<span class="sd">    (x, ns) points and interpolate, instead of assuming one straight line</span>
+<span class="sd">    across the whole range like set_position does."""</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">ns0</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">ns1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="k">if</span> <span class="n">x0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x1</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ns0</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">ns1</span> <span class="o">-</span> <span class="n">ns0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="n">table</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_minute_position</span><span class="p">(</span><span class="n">fraction</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Point the minute hand using the measured MINUTE_CALIBRATION table</span>
+<span class="sd">    instead of a straight-line formula. Minutes 0-13 fall below this servo's</span>
+<span class="sd">    real pulse floor, so they're looked up as "minute + 60" instead - reached</span>
+<span class="sd">    by continuing a bit past a full turn rather than a low pulse.</span>
+<span class="sd">    MINUTE_CALIBRATION_SHIFT_MIN corrects for the horn/gear's mounting</span>
+<span class="sd">    position without needing to re-measure the whole table."""</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">MINUTE_CALIBRATION_SHIFT_MIN</span><span class="p">)</span> <span class="o">%</span> <span class="mi">60</span>
+    <span class="n">low_minute</span> <span class="o">=</span> <span class="n">MINUTE_CALIBRATION</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">minute</span> <span class="o">&lt;</span> <span class="n">low_minute</span><span class="p">:</span>
+        <span class="n">minute</span> <span class="o">+=</span> <span class="mi">60</span>
+    <span class="n">pulse_ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">interpolate_ns</span><span class="p">(</span><span class="n">MINUTE_CALIBRATION</span><span class="p">,</span> <span class="n">minute</span><span class="p">))</span>
+    <span class="n">minute_servo</span><span class="o">.</span><span class="n">duty_ns</span><span class="p">(</span><span class="n">pulse_ns</span><span class="p">)</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Minute servo -&gt; target </span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">360</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> deg (</span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> min), pulse </span><span class="si">{</span><span class="n">pulse_ns</span><span class="si">}</span><span class="s2"> ns"</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Wifi / time</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wifi_connect</span><span class="p">():</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">network</span>
+    <span class="n">sta_if</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="o">.</span><span class="n">IF_STA</span><span class="p">)</span>
+    <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sta_if</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'connecting to network...'</span><span class="p">)</span>
+        <span class="n">sta_if</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">SSID</span><span class="p">,</span> <span class="n">secrets</span><span class="o">.</span><span class="n">PWD</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+            <span class="k">pass</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'network config:'</span><span class="p">,</span> <span class="n">sta_if</span><span class="o">.</span><span class="n">ipconfig</span><span class="p">(</span><span class="s1">'addr4'</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_utc_now</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fetch current local (America/New_York) time from TimeAPI.io. Returns an epoch-like value or None."""</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://timeapi.io/api/time/current/zone?timeZone=America/New_York"</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_retries</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">((</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'day'</span><span class="p">],</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'minute'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'seconds'</span><span class="p">],</span>
+                    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+                <span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Time synced from TimeAPI.io:"</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">'dateTime'</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">t</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"TimeAPI attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2"> bad status: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"TimeAPI attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2"> failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"TimeAPI.io failed after retries — using unsynced clock"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">format_date</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="si">{:04d}</span><span class="s2">-</span><span class="si">{:02d}</span><span class="s2">-</span><span class="si">{:02d}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Football API</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_next_match</span><span class="p">(</span><span class="n">now_ts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (home_name, away_name) for the next scheduled PL match, or None."""</span>
+    <span class="n">one_week_later</span> <span class="o">=</span> <span class="n">now_ts</span> <span class="o">+</span> <span class="p">(</span><span class="mi">21</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">date_from</span> <span class="o">=</span> <span class="n">format_date</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">now_ts</span><span class="p">))</span>
+    <span class="n">date_to</span> <span class="o">=</span> <span class="n">format_date</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">one_week_later</span><span class="p">))</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.football-data.org/v4/competitions/PL/matches?status=SCHEDULED&amp;dateFrom=</span><span class="si">{</span><span class="n">date_from</span><span class="si">}</span><span class="s2">&amp;dateTo=</span><span class="si">{</span><span class="n">date_to</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'X-Auth-Token'</span><span class="p">:</span> <span class="n">secrets</span><span class="o">.</span><span class="n">FOOTBALL_API_TOKEN</span><span class="p">}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Match request failed:"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'matches'</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">matches</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"No scheduled matches in the next week."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">next_match</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">home</span> <span class="o">=</span> <span class="n">next_match</span><span class="p">[</span><span class="s1">'homeTeam'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
+    <span class="n">away</span> <span class="o">=</span> <span class="n">next_match</span><span class="p">[</span><span class="s1">'awayTeam'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Next PL match: </span><span class="si">{</span><span class="n">home</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">away</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">next_match</span><span class="p">[</span><span class="s1">'utcDate'</span><span class="p">]</span><span class="si">}</span><span class="s2"> UTC"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">home</span><span class="p">,</span> <span class="n">away</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_team</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&amp;"</span><span class="p">,</span> <span class="s2">"and"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">" fc"</span><span class="p">,</span> <span class="s2">" afc"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">suffix</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">team_fraction</span><span class="p">(</span><span class="n">team_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Map a team name to its 0.0-1.0 position around the dial (physical clockwise order).</span>
+
+<span class="sd">    Divides by len(teams), not len(teams) - 1: this is a circular dial, so</span>
+<span class="sd">    fraction 0.0 and 1.0 are the same physical spot. Dividing by the count</span>
+<span class="sd">    (not count - 1) spaces all 20 teams evenly around the full circle without</span>
+<span class="sd">    the first and last team landing on top of each other. TEAM_DIAL_OFFSET_DEG</span>
+<span class="sd">    then shifts the whole ring to match where it actually sits on the face.</span>
+<span class="sd">    """</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">normalize_team</span><span class="p">(</span><span class="n">team_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">PREMIER_LEAGUE_TEAMS</span><span class="p">):</span>
+        <span class="n">known</span> <span class="o">=</span> <span class="n">normalize_team</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">known</span> <span class="o">==</span> <span class="n">target</span> <span class="ow">or</span> <span class="n">known</span> <span class="ow">in</span> <span class="n">target</span> <span class="ow">or</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">known</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">PREMIER_LEAGUE_TEAMS</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEAM_DIAL_OFFSET_DEG</span> <span class="o">/</span> <span class="mf">360.0</span><span class="p">)</span> <span class="o">%</span> <span class="mf">1.0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Unknown team, not in PREMIER_LEAGUE_TEAMS list:"</span><span class="p">,</span> <span class="n">team_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.5</span>  <span class="c1"># park in the middle if we don't recognize the name</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_next_match</span><span class="p">(</span><span class="n">now_ts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Hour hand points at the home team, minute hand points at the away team."""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">get_next_match</span><span class="p">(</span><span class="n">now_ts</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">home</span><span class="p">,</span> <span class="n">away</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Button pressed -&gt; showing matchup: </span><span class="si">{</span><span class="n">home</span><span class="si">}</span><span class="s2"> (hour hand) vs </span><span class="si">{</span><span class="n">away</span><span class="si">}</span><span class="s2"> (minute hand)"</span><span class="p">)</span>
+
+    <span class="n">set_mode_led</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">set_hour_position</span><span class="p">(</span><span class="n">team_fraction</span><span class="p">(</span><span class="n">home</span><span class="p">))</span>
+    <span class="n">set_minute_position</span><span class="p">(</span><span class="n">team_fraction</span><span class="p">(</span><span class="n">away</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">MATCH_DISPLAY_SECONDS</span><span class="p">)</span>
+    <span class="n">set_mode_led</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Matchup display done -&gt; returning to clock"</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Button (ISR sets a flag, main loop does the actual work)</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">PIN_BUTTON</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+<span class="n">last_press</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">match_requested</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">button_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">last_press</span><span class="p">,</span> <span class="n">match_requested</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">last_press</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">DEBOUNCE_MS</span> <span class="ow">and</span> <span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">last_press</span> <span class="o">=</span> <span class="n">now</span>
+        <span class="n">match_requested</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">button</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_handler</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Clock mode - normal two-hand clock</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_clock</span><span class="p">(</span><span class="n">utc_ts</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">utc_ts</span><span class="p">)</span>  <span class="c1"># (year, month, mday, hour, minute, second, ...)</span>
+    <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">hour_fraction</span> <span class="o">=</span> <span class="p">((</span><span class="n">hour</span> <span class="o">%</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">minute</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">/</span> <span class="mi">12</span>
+    <span class="n">minute_fraction</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Clock update -&gt; </span><span class="si">{:d}</span><span class="s2">:</span><span class="si">{:02d}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hour</span> <span class="o">%</span> <span class="mi">12</span> <span class="ow">or</span> <span class="mi">12</span><span class="p">,</span> <span class="n">minute</span><span class="p">))</span>
+    <span class="n">set_hour_position</span><span class="p">(</span><span class="n">hour_fraction</span><span class="p">)</span>
+    <span class="n">set_minute_position</span><span class="p">(</span><span class="n">minute_fraction</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_clock_hands</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""One-time startup sanity check: sweep each hand through a few known positions.</span>
+
+<span class="sd">    Uses a continuously increasing fraction (0.0 -&gt; 1.0) rather than wrapping</span>
+<span class="sd">    back to 0.0 for the final "12"/"60" mark. Fraction 0.0 and 1.0 land on the</span>
+<span class="sd">    same visual spot but are different physical servo angles (0 deg vs 180 deg,</span>
+<span class="sd">    since it's geared 2:1) - commanding 0.0 from mid-swing would yank the</span>
+<span class="sd">    servo all the way backward instead of finishing the turn forward.</span>
+<span class="sd">    """</span>
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Startup test: sweeping hour hand through 12, 3, 6, 9, 12"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fraction</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"12"</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="s2">"3"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="s2">"6"</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s2">"9"</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="p">(</span><span class="s2">"12"</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)):</span>
+        <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hour hand target: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> o'clock"</span><span class="p">)</span>
+        <span class="n">set_hour_position</span><span class="p">(</span><span class="n">fraction</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">STARTUP_TEST_STEP_SECONDS</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Startup test: sweeping minute hand through 15, 30, 45, 60"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fraction</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">"15"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="s2">"30"</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="s2">"45"</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="p">(</span><span class="s2">"60"</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)):</span>
+        <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Minute hand target: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">set_minute_position</span><span class="p">(</span><span class="n">fraction</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">STARTUP_TEST_STEP_SECONDS</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Startup test complete"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calibrate_servos</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Park both hands at fraction 0.0 (should be true 12 o'clock) and hold,</span>
+<span class="sd">    so you can measure how far off each one physically sits.</span>
+
+<span class="sd">    Usage: temporarily call this instead of test_clock_hands() in Main below,</span>
+<span class="sd">    flash it, then measure each hand against the 12 o'clock mark:</span>
+<span class="sd">      - How many degrees off is it, and which way (clockwise/counter-clockwise)?</span>
+<span class="sd">    Report those two numbers and I'll set SERVO_HOUR_OFFSET_DEG (for the hour</span>
+<span class="sd">    hand) or the first MINUTE_CALIBRATION point (for the minute hand). Ctrl+C</span>
+<span class="sd">    out of this once you've measured.</span>
+<span class="sd">    """</span>
+    <span class="n">log</span><span class="p">(</span><span class="s2">"CALIBRATION: parking hour + minute hands at fraction 0.0 (true 12 o'clock)"</span><span class="p">)</span>
+    <span class="n">set_hour_position</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">set_minute_position</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">log</span><span class="p">(</span><span class="s2">"Hands parked - measure the offset on each, then Ctrl+C and report back"</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">probe_servo_range</span><span class="p">(</span><span class="n">servo</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">start_ns</span><span class="o">=</span><span class="mi">300_000</span><span class="p">,</span> <span class="n">end_ns</span><span class="o">=</span><span class="mi">2_700_000</span><span class="p">,</span> <span class="n">step_ns</span><span class="o">=</span><span class="mi">100_000</span><span class="p">,</span> <span class="n">step_seconds</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Sweep raw pulse widths on one servo, ignoring fraction/offset math, so</span>
+<span class="sd">    you can find where it actually stalls/buzzes at each end.</span>
+
+<span class="sd">    Usage: temporarily call e.g. probe_servo_range(hour_servo, "Hour") instead</span>
+<span class="sd">    of test_clock_hands() in Main below. Watch/listen for the pulse width</span>
+<span class="sd">    where it stops moving cleanly (grinds, buzzes, or the hand just stops).</span>
+<span class="sd">    Report the ns value at each end and I'll set SERVO_HOUR_MIN_NS/MAX_NS (or</span>
+<span class="sd">    the minute equivalents) a little inside those limits, so the fraction</span>
+<span class="sd">    math never asks for a pulse the servo can't actually reach.</span>
+<span class="sd">    """</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">start_ns</span>
+    <span class="k">while</span> <span class="n">ns</span> <span class="o">&lt;=</span> <span class="n">end_ns</span><span class="p">:</span>
+        <span class="n">servo</span><span class="o">.</span><span class="n">duty_ns</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+        <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> raw pulse -&gt; </span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s2"> ns"</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">step_seconds</span><span class="p">)</span>
+        <span class="n">ns</span> <span class="o">+=</span> <span class="n">step_ns</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wait_or_button</span><span class="p">(</span><span class="n">seconds</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Sleep up to `seconds`, but return early the moment the button sets</span>
+<span class="sd">    match_requested - so a press is noticed within ~50ms instead of waiting</span>
+<span class="sd">    out the rest of a long clock-update sleep."""</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="nb">int</span><span class="p">(</span><span class="n">seconds</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="k">while</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">match_requested</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Main</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span>
+
+<span class="n">wifi_connect</span><span class="p">()</span>
+
+<span class="n">now_ts</span> <span class="o">=</span> <span class="n">get_utc_now</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">now_ts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">now_ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># fallback to board's own clock</span>
+
+<span class="n">sync_ticks</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">current_time</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">now_ts</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">sync_ticks</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1000</span>
+
+
+<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+
+<span class="n">test_clock_hands</span><span class="p">()</span>
+
+<span class="c1">#calibrate_servos()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">match_requested</span><span class="p">:</span>
+        <span class="n">match_requested</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">show_next_match</span><span class="p">(</span><span class="n">current_time</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">show_clock</span><span class="p">(</span><span class="n">current_time</span><span class="p">())</span>
+        <span class="n">wait_or_button</span><span class="p">(</span><span class="n">CLOCK_UPDATE_SECONDS</span><span class="p">)</span>
+</code></pre></div></div></details><details class=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3f3b673d-c853-80e8-b97e-f489a376da65" style="display:inline-block">Clock Fabrication</h2></summary><div class="indented"><p class="" id="3f3b673d-c853-8005-81d6-f80fdb9fe37c">We found a graphic of all 20 Premier League teams (2026/27 season) and converted the image into a .dxf file.  We lasercutted a simple box to hold all of our components. simple box to hold all of our components.</p><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%2011.png" id="3f3b673d-c853-80b8-85a7-c092047795d4"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/13.webp" style="max-width:min(100%,240px)"/></figure><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/e095504c-a55b-4e7c-95e3-b50afcc55ca3.png" id="3f3b673d-c853-80e9-aed2-c331825b8e21"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/14.webp" style="max-width:min(100%,240px)"/></figure><h2 class="" id="3f3b673d-c853-8045-b6f6-c7781c9c2fcc">Wiring Diagram:</h2><figure class="image" data-notion-image="Week%202%20Premier%20League%20O%E2%80%99Clock/image%2012.png" id="3f3b673d-c853-804b-9b51-ec8e11da8a25"><img alt="" loading="lazy" src="../../../assets/img/me35-week-2-premier-league-clock/15.webp" style="max-width:min(100%,447px)"/></figure><hr id="3f3b673d-c853-80f1-99bd-f27fa1800426"/><h2 class="" id="3f3b673d-c853-809f-b0d2-c58013b852db">Challenges and Outcome</h2><p class="" id="3f3b673d-c853-80c5-aefc-faff22510617">After finalizing our idea of what kind of clock we were going to create, our biggest challenge we faced was with the gearing and calibration. The first set of gears we printed out did not have enough teeth, and caused a lot of backlash, disallowing the servos to smoothly move the hands. Because of this backlash, precise motions were impossible, and the reading on the clock would be inaccurate. Therefore, we printed a bigger motor mount to account for new gears that had much more teeth. This addition of teeth made the connection between the servo and hand very smooth. Calibrating the clock was another issue, however, as we had to pulse the servo motors manually to set where the hands pointed. This was necessary because of the added gears, the servos were no longer able to tell were they were. To calibrate the clock, we set 6 known positions with their corresponding nanosecond pulse. With this data, we could then interpolate and use to make very precise movements. </p></div></details></div>
+<p class="origin">Originally written in Notion.</p>
+</main>
+<div class="page" style="padding-top:0;padding-bottom:0"><nav class="prevnext"><a href="../../../projects/me35/week-1-esp32/index.html"><span class="lbl">← Previous</span>Week 1: ESP32, MicroPython &amp; a Board Case</a><a href="../../../projects/me35/week-3-lego-sorter/index.html" style="text-align:right"><span class="lbl">Next →</span>Week 3: KNN LEGO Sorting Robot</a></nav></div>
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="../../../index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="../../../assets/site.js"></script>
+
+</body>
+</html>

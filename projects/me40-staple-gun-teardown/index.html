@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cordless Staple Gun Teardown · Thomas Giglia</title>
+<meta name="description" content="A full product decomposition of a 4 V cordless staple gun: every part’s material and process, the motor → planetary gearbox → spring mechanism, and its affordances.">
+<meta property="og:title" content="Cordless Staple Gun Teardown">
+<meta property="og:description" content="A full product decomposition of a 4 V cordless staple gun: every part’s material and process, the motor → planetary gearbox → spring mechanism, and its affordances.">
+<meta property="og:image" content="/assets/img/me40-staple-gun-teardown/sg_teardown.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔩</text></svg>">
+<link rel="stylesheet" href="../../assets/site.css">
+
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="../../index.html">📁 Thomas Giglia</a><span class="sep">/</span><a href="../../index.html#course">Coursework</a><span class="sep">/</span><span class="cur">🔩 Cordless Staple Gun Teardown</span></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+<div class="cover"><img src="../../assets/img/me40-staple-gun-teardown/sg_teardown.webp" alt="" style="object-position:center"></div>
+<main class="page">
+<div class="icon" aria-hidden="true">🔩</div>
+<h1 class="title">Cordless Staple Gun Teardown</h1>
+<p class="subtitle">ME 40 · Project 1 · with Lawer Nyako & Marcus Sang</p>
+<div class="props">
+<div class="prop"><div class="k">☰ Tags</div><div class="v"><span class="tag t-blue">Product decomposition</span><span class="tag t-green">Mechanisms</span><span class="tag t-gray">DFM</span></div></div>
+<div class="prop"><div class="k">📚 Course</div><div class="v">ME 40 Engineering Design</div></div>
+<div class="prop"><div class="k">📅 Term</div><div class="v">Spring 2025</div></div>
+</div><hr>
+  <div class="callout"><div class="ci">🔧</div><div>
+    <p>ME&nbsp;40’s first project was a full product teardown. We took apart a cordless staple and nail gun, documented every part with its material and manufacturing process, worked out how the mechanism turns battery charge into a driven staple, and studied how the design tells the user how to use it.</p>
+  </div></div>
+
+  <div class="cols" style="--n:2;gap:28px;align-items:start">
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_product.webp" alt="Cordless staple gun with staples and charging cable" style="background:#fff"><figcaption>The product: a 4&nbsp;V cordless staple and brad-nail gun</figcaption></figure>
+    <div>
+      <h4 class="h3" style="margin-top:.3em">Product facts</h4>
+      <ul>
+        <li>4&nbsp;V lithium-ion battery, charged over USB-C in about 2 hours.</li>
+        <li>Up to 850 firings per charge, at up to 50 shots per minute.</li>
+        <li>50-fastener quick-release magazine for staples or brad nails.</li>
+        <li>Power switch, battery and armed indicator light, and a safety striker that prevents firing in the air.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="h1">How It Works</h2>
+  <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_cutaway.webp" alt="Staple gun with half the case removed showing motor, gearbox, spring and battery" style="max-width:520px;background:#fff"><figcaption>With one half of the case removed</figcaption></figure>
+  <ol>
+    <li>Pulling the trigger with the safety pressed against a surface lets the PCB send battery power to a <strong>brushed DC motor</strong>, which spins fast with low torque.</li>
+    <li>A <strong>two-stage planetary gearbox</strong> trades that speed for torque.</li>
+    <li>The gearbox turns a <strong>rotating lever arm</strong> that pushes back a casing, compressing the <strong>main spring</strong>.</li>
+    <li>When a tab on the casing reaches an <strong>actuator switch</strong>, the motor stops and the spring releases. Its energy drives the punch down its guides into the staple.</li>
+    <li>A <strong>spring-loaded pusher</strong> in the magazine keeps the next fastener in position for the next shot.</li>
+  </ol>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_motor.webp" alt="Brushed motor with planetary gearbox" style="object-fit:contain;background:#fff"><figcaption>Motor and planetary gearbox</figcaption></figure>
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_mech.webp" alt="Punch mechanism, spring and guides" style="object-fit:contain;background:#fff"><figcaption>Punch, spring and guides</figcaption></figure>
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_battery.webp" alt="Battery and wiring" style="object-fit:contain;background:#fff"><figcaption>Battery and wiring</figcaption></figure>
+  </div>
+
+  <h2 class="h1">Product Decomposition</h2>
+  <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_teardown.webp" alt="All parts of the staple gun laid out and labeled on a table"><figcaption>Every part laid out and labeled</figcaption></figure>
+  <details>
+    <summary><strong>Part, material and process table</strong>&nbsp;<span class="muted">(excerpt)</span></summary>
+    <div class="tbody"><div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Part</th><th>Qty</th><th>Material</th><th>Manufacturing process</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>Case, left and right</td><td class="num">2</td><td>Plastic</td><td>Injection molding</td></tr>
+        <tr><td>3</td><td>Case screws</td><td class="num">8</td><td>High-strength steel</td><td>Wire feeding, cutting, heading, thread rolling, heat treatment, coating</td></tr>
+        <tr><td>4</td><td>Trigger</td><td class="num">1</td><td>Plastic</td><td>Injection molding</td></tr>
+        <tr><td>5</td><td>Trigger spring</td><td class="num">1</td><td>Steel</td><td>Coiling, heat treating, grinding, coating</td></tr>
+        <tr><td>6</td><td>Actuator switches</td><td class="num">2</td><td>Aluminum and plastic</td><td>Injection molding, casting, cutting, assembly</td></tr>
+        <tr><td>7–8</td><td>Punch mechanism and guide</td><td class="num">2</td><td>Sheet steel</td><td>Cutting, bending, grinding</td></tr>
+        <tr><td>10</td><td>Main spring</td><td class="num">1</td><td>Steel</td><td>Coiling, heat treating, grinding, coating</td></tr>
+        <tr><td>11</td><td>Spring dampener</td><td class="num">1</td><td>Rubber</td><td>Injection molding</td></tr>
+        <tr><td>12–14</td><td>Safety striker, guide and linkage</td><td class="num">3</td><td>Sheet steel</td><td>Cutting, bending, grinding</td></tr>
+      </tbody>
+    </table></div></div>
+  </details>
+  <div class="cols tight" style="--n:2;--ar:3/4">
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_pcb.webp" alt="Control PCB with battery"><figcaption>Control PCB and battery</figcaption></figure>
+    <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_gear.webp" alt="Gearbox housing being disassembled"><figcaption>Opening the gearbox</figcaption></figure>
+  </div>
+
+  <h2 class="h1">Designing for the User</h2>
+  <figure><img src="../../assets/img/me40-staple-gun-teardown/sg_dims.webp" alt="Annotated outline of the staple gun with key dimensions" style="max-width:640px"><figcaption>Key interface dimensions we measured</figcaption></figure>
+  <p>The tool uses <strong>affordances</strong> to explain itself:</p>
+  <ul>
+    <li>The handgun-shaped grip tells a first-time user where their hand and index finger go.</li>
+    <li>The rest at the base of the handle positions the palm.</li>
+    <li>The spring-loaded safety at the nose lights an indicator when it is pressed, so the user knows the tool is armed. The same light shows charging.</li>
+    <li>The power switch and charging port sit together at the bottom of the handle, out of the way during use.</li>
+    <li>The only exposed springs are on the magazine-release bumpers, which hints that squeezing them does something.</li>
+    <li>A small molded nail shape shows which way fasteners load.</li>
+  </ul>
+  <p>We also wrote a user memo (homeowners, DIYers and trades in carpentry and upholstery), a quick-start guide and first-use documentation covering unboxing, setup and cleanup.</p>
+
+</main>
+
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="../../index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="../../assets/site.js"></script>
+
+</body>
+</html>

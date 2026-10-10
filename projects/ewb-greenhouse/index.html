@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greenhouse Auto-Watering: “The Cube” · Thomas Giglia</title>
+<meta name="description" content="A modular, gravity-fed watering cube driven by soil-moisture sensing, with stepper-actuated valves and an Arduino controller.">
+<meta property="og:title" content="Greenhouse Auto-Watering: “The Cube”">
+<meta property="og:description" content="A modular, gravity-fed watering cube driven by soil-moisture sensing, with stepper-actuated valves and an Arduino controller.">
+<meta property="og:image" content="/assets/img/ewb-greenhouse/gh_cube.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+<link rel="stylesheet" href="../../assets/site.css">
+
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="../../index.html">📁 Thomas Giglia</a><span class="sep">/</span><a href="../../index.html#ewb">Engineers Without Borders</a><span class="sep">/</span><span class="cur">🌱 Greenhouse Auto-Watering: “The Cube”</span></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+<div class="cover"><img src="../../assets/img/ewb-greenhouse/gh_cube.webp" alt="" style="object-position:center 55%"></div>
+<main class="page">
+<div class="icon" aria-hidden="true">🌱</div>
+<h1 class="title">Greenhouse Auto-Watering: “The Cube”</h1>
+<p class="subtitle">EWB Water Automation group · Fall 2023</p>
+<div class="props">
+<div class="prop"><div class="k">☰ Tags</div><div class="v"><span class="tag t-blue">Arduino</span><span class="tag t-green">Sensors</span><span class="tag t-orange">Prototyping</span></div></div>
+<div class="prop"><div class="k">🏢 Organization</div><div class="v">Engineers Without Borders · Tufts</div></div>
+<div class="prop"><div class="k">📅 Term</div><div class="v">Fall 2023</div></div>
+</div><hr>
+  <div class="callout blue"><div class="ci">🌱</div><div>
+    <p>EWB’s greenhouse project needed a way to water plants automatically. Our Water Automation group designed <strong>“The Cube”</strong>: a modular unit that draws water from a central tank when a soil-moisture sensor says the plants need it, and passes water along to the next cube so many units can be chained across a greenhouse.</p>
+  </div></div>
+
+  <figure><img src="../../assets/img/ewb-greenhouse/gh_cube.webp" alt="Purple cube prototype with tubing and electronics inside"><figcaption>The Cube prototype: tubing in, tubing out, with the electronics mounted inside the enclosure</figcaption></figure>
+
+  <h2 class="h1">System Overview</h2>
+  <div class="cols" style="--n:2;gap:28px;align-items:start">
+    <div>
+      <ul>
+        <li>Water is fed from a <strong>central tank</strong> using <strong>gravity</strong> for pressure, so no pump is needed in the basic layout.</li>
+        <li>Each cube draws water from the tank based on <strong>moisture readings</strong> from its soil sensor.</li>
+        <li>Cubes are <strong>linked to each other</strong>, so one supply line can serve a whole row of plants.</li>
+      </ul>
+      <h4 class="h3">A modular unit</h4>
+      <ul>
+        <li><strong>1 input</strong> from the tank or the previous cube.</li>
+        <li><strong>2 outputs</strong>: one to water its plant, one that feeds the next cube.</li>
+        <li><strong>2 knobs</strong>, one controlling each output.</li>
+      </ul>
+    </div>
+    <figure style="margin-top:6px"><img src="../../assets/img/ewb-greenhouse/gh_cubetop.webp" alt="Cube from above with inlet and outlet tubing" style="aspect-ratio:3/4;object-fit:cover"><figcaption>Inlet and outlet tubing on the cube</figcaption></figure>
+  </div>
+
+  <h2 class="h1">Design Process</h2>
+  <ol>
+    <li>We split into small groups, and each group came up with its own solution.</li>
+    <li>Each group built a prototype and presented it to the team.</li>
+    <li>We combined the best ideas into one final prototype.</li>
+    <li>We re-split by discipline (electrical, mechanical, presentation) to build it.</li>
+  </ol>
+  <div class="cols tight" style="--n:2;--ar:4/3">
+    <figure><img src="../../assets/img/ewb-greenhouse/gh_workshop.webp" alt="Team working at tables in the makerspace"><figcaption>Build session in the makerspace</figcaption></figure>
+    <figure><img src="../../assets/img/ewb-greenhouse/gh_team.webp" alt="Team members with the prototype"><figcaption>The Water Automation group</figcaption></figure>
+  </div>
+
+  <h2 class="h1">Electronics</h2>
+  <p>The control side started with an Arduino test circuit that reads a soil-moisture probe, plus a stepper motor and driver to turn a valve. Getting the stepper running meant writing up a wiring guide for an L298N driver and a NEMA&nbsp;17 motor, so the next group could rebuild it.</p>
+  <div class="cols tight" style="--n:3;--ar:3/4">
+    <figure><img src="../../assets/img/ewb-greenhouse/gh_moisture.webp" alt="Arduino with soil moisture probe" style="object-position:center"><figcaption>Arduino moisture tester</figcaption></figure>
+    <figure><img src="../../assets/img/ewb-greenhouse/gh_stepper.webp" alt="Stepper motor wired to a driver board"><figcaption>NEMA 17 stepper on an L298N driver</figcaption></figure>
+    <figure><img src="../../assets/img/ewb-greenhouse/gh_driver.webp" alt="Arduino and driver on a breadboard"><figcaption>Driver wiring to the Arduino</figcaption></figure>
+  </div>
+  <details>
+    <summary><strong>Code: scheduled watering with a pump and two valves</strong>&nbsp;<span class="muted">(Arduino)</span></summary>
+    <div class="tbody">
+      <p>One solution we explored used a DS3231 real-time clock to run a pump and two solenoid valves on a schedule: valve 1 at 6:00 and valve 2 at 18:00, for 30 seconds each, with the pump running two seconds early to build pressure.</p>
+      <div class="codeblock"><div class="code-head"><span>Arduino (C++)</span><button type="button" class="copy">Copy</button></div><pre><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;RTClib.h&gt;</span>
+
+<span class="n">RTC_DS3231</span><span class="w"> </span><span class="n">rtc</span><span class="p">;</span>
+
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">relay1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pin for solenoid valve 1</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">relay2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pin for solenoid valve 2</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">pumpPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pin for the pump relay</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">pumpPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Initialize relays and pump as OFF</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">pumpPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">rtc</span><span class="p">.</span><span class="nf">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Couldn't find RTC"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rtc</span><span class="p">.</span><span class="n">lostPower</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"RTC lost power, setting the time!"</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Set the time to compile time</span>
+<span class="w">    </span><span class="n">rtc</span><span class="p">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">DateTime</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">__DATE__</span><span class="p">),</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="n">__TIME__</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"System initialized."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">DateTime</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rtc</span><span class="p">.</span><span class="n">now</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Print current time</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Current time: "</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n">hour</span><span class="p">());</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n">minute</span><span class="p">());</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">":"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n">second</span><span class="p">());</span>
+
+<span class="w">  </span><span class="c1">// Check for the first watering time (e.g., 6:00 AM)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n">hour</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="n">minute</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="n">second</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">waterPlants</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span><span class="w"> </span><span class="c1">// Water using valve 1 for 30 seconds</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Check for the second watering time (e.g., 6:00 PM)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n">hour</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="n">minute</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="n">second</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">waterPlants</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span><span class="w"> </span><span class="c1">// Water using valve 2 for 30 seconds</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wait 1 second</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nf">waterPlants</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">valvePin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Turn on the pump</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Pump: ON"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">pumpPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Brief delay to allow pump to build pressure</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">  </span><span class="c1">// Turn on the valve</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Valve "</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">valvePin</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">": ON"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">valvePin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Wait for the specified watering duration</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="n">duration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Turn off the valve</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Valve "</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">valvePin</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">": OFF"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">valvePin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Turn off the pump</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Pump: OFF"</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">pumpPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+    </div>
+  </details>
+  <details>
+    <summary><strong>Code: stepper test</strong>&nbsp;<span class="muted">(Arduino)</span></summary>
+    <div class="tbody"><div class="codeblock"><div class="code-head"><span>Arduino (C++)</span><button type="button" class="copy">Copy</button></div><pre><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Stepper.h&gt;</span>
+
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">stepsPerRevolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<span class="nf">Stepper</span><span class="w"> </span><span class="nf">myStepper</span><span class="p">(</span><span class="n">stepsPerRevolution</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">);</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">myStepper</span><span class="p">.</span><span class="nf">setSpeed</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Clockwise"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">myStepper</span><span class="p">.</span><span class="nf">step</span><span class="p">(</span><span class="n">stepsPerRevolution</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"Counterclockwise"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">myStepper</span><span class="p">.</span><span class="nf">step</span><span class="p">(</span><span class="o">-</span><span class="n">stepsPerRevolution</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+  </details>
+
+  <h2 class="h1">Waterproofing</h2>
+  <p>Electronics and water share the same box, so we researched ways to seal the sensor and wiring: heat-shrink tubing, epoxy potting, O-rings, and vinyl, PVC and wire tubing for routing.</p>
+
+  <h2 class="h1">Future Goals</h2>
+  <div class="cols" style="--n:2;gap:28px">
+    <ul>
+      <li><strong>Longevity</strong>: last years without major intervention.</li>
+      <li><strong>Accuracy</strong>: consistently give plants what they need.</li>
+    </ul>
+    <ul>
+      <li><strong>Efficiency</strong>: use as little water and energy as possible.</li>
+      <li><strong>Scalability</strong>: many cubes working together in the final greenhouse.</li>
+    </ul>
+  </div>
+  <p>We also planned to <strong>“Malawify”</strong> the cubes, decorating the sides with Malawian designs and facts about water access, to connect the greenhouse to EWB’s borehole work in Malawi. Most of rural Malawi gathers water from rivers or, where they exist, boreholes, and irrigation relies largely on canal-fed sprinklers and labor-intensive pumps.</p>
+
+  <h3 class="h2">Reflections</h3>
+  <p>The group’s end-of-semester notes were mostly about people. Keep members engaged, prepare even when a task seems straightforward, and set weekly tasks and deliverables to keep the project on track.</p>
+
+</main>
+
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="../../index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="../../assets/site.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tufts Electric Racing: Design &amp; FEA · Thomas Giglia</title>
+<meta name="description" content="Formula SAE Electric: a machined motor sprocket adapter, a laser-cut cockpit floor and firewall fasteners I designed, plus brakes, pedals and chassis packaging work.">
+<meta property="og:title" content="Tufts Electric Racing: Design &amp; FEA">
+<meta property="og:description" content="Formula SAE Electric: a machined motor sprocket adapter, a laser-cut cockpit floor and firewall fasteners I designed, plus brakes, pedals and chassis packaging work.">
+<meta property="og:image" content="/assets/img/tufts-electric-racing/fs_sprocket_photo.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link rel="stylesheet" href="../../assets/site.css">
+
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="../../index.html">📁 Thomas Giglia</a><span class="sep">/</span><a href="../../index.html#racing">Electric Racing</a><span class="sep">/</span><span class="cur">⚡ Tufts Electric Racing: Design &amp; FEA</span></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+
+<div class="cover"><img src="../../assets/img/tufts-electric-racing/cover_fsae.webp" alt="Onshape renders of the Tufts Electric Racing chassis, full car and pedal box" style="object-position:center 60%"></div>
+
+<main class="page">
+  <div class="icon" aria-hidden="true">⚡</div>
+  <h1 class="title">Tufts Electric Racing: Design &amp; FEA</h1>
+
+  <div class="props">
+    <div class="prop"><div class="k">☰ Tags</div><div class="v"><span class="tag t-blue">CAD</span><span class="tag t-orange">FEA</span><span class="tag t-purple">Powertrain</span><span class="tag t-green">Brakes &amp; Pedals</span><span class="tag t-yellow">Chassis &amp; Packaging</span></div></div>
+    <div class="prop"><div class="k">🏁 Team</div><div class="v">Tufts Electric Racing · Formula SAE Electric</div></div>
+    <div class="prop"><div class="k">🛠️ Tools</div><div class="v"><span class="tag t-gray">Onshape</span><span class="tag t-gray">SolidWorks</span><span class="tag t-gray">SolidWorks Simulation (FEA)</span><span class="tag t-gray">Laser cutting</span><span class="tag t-gray">3D printing</span></div></div>
+    <div class="prop"><div class="k">👤 Role</div><div class="v">Mechanical team member: part design and FEA</div></div>
+    <div class="prop"><div class="k">📅 Timeline</div><div class="v">Fall 2024 → present</div></div>
+  </div>
+  <hr>
+
+  <div class="callout"><div class="ci">🏎️</div><div>
+    <p>Formula SAE teams design, build and race a small open-wheel car every year. Our team’s work happens in shared Onshape and SolidWorks documents that anyone on the team can open and edit, and we don’t write semester reports or hold showcases the way EWB does. This page pulls my part of that work out of the CAD. It covers three parts I designed from scratch, and the brake, cockpit and chassis assemblies I worked on with the team.</p>
+  </div></div>
+
+  <!-- ===================== CONTEXT ===================== -->
+  <h2 class="h1">How the Car Gets Designed</h2>
+  <p>Every part on an FSAE car is shaped by two things: the <strong>rules</strong> and the <strong>competition events</strong>. The rulebook sets minimum requirements for the frame, driver safety, brakes and, on an electric car, the high-voltage <em>tractive system</em>. Technical inspection checks all of it before the car is allowed on track. Then the car is scored in static events (design, cost and business presentations) and dynamic events (acceleration, skidpad, autocross, endurance and efficiency).</p>
+  <div class="pipe" style="margin:12px 0">
+    <div class="pnode"><b>Requirements</b><span>rules, packaging space, loads</span></div><div class="parrow">→</div>
+    <div class="pnode"><b>CAD</b><span>part studios → car assembly</span></div><div class="parrow">→</div>
+    <div class="pnode"><b>FEA</b><span>stress &amp; deflection under worst-case loads</span></div><div class="parrow">→</div>
+    <div class="pnode"><b>Make &amp; test</b><span>machine, laser-cut, print, fit-check</span></div>
+  </div>
+  <p>Parts loop through those stages several times. The team keeps one living model of the whole car, and every subsystem has to fit inside it alongside the frame, driver, motor, accumulator (battery pack) and electronics.</p>
+
+  <!-- ===================== SPROCKET ===================== -->
+  <h2 class="h1">Motor Sprocket Adapter</h2>
+  <p class="muted" style="font-size:14px;margin-top:-2px">My design · Oct 2024 – Spring 2025 · Powertrain</p>
+  <div class="cols" style="--n:2;gap:28px;align-items:start">
+    <figure style="margin-top:6px"><img src="../../assets/img/tufts-electric-racing/fs_sprocket_photo.webp" alt="Machined adapter flange with a ten-tooth drive sprocket seated on it"><figcaption>The finished adapter: a machined flange carrying the drive sprocket</figcaption></figure>
+    <div>
+      <p>The motor turns the rear axle through a chain. This adapter is the link between the two: it slides onto the motor’s <strong>splined output shaft</strong> and carries the small <strong>drive sprocket</strong>, so the motor’s torque goes shaft → spline → adapter → sprocket → chain.</p>
+      <p>This is my own Onshape document, from first sketch to the released version:</p>
+      <ul>
+        <li>Modeled the splined shaft so the adapter’s bore could be designed around the real interface.</li>
+        <li>Designed the flange with a five-bolt pattern and a raised boss to locate the sprocket.</li>
+        <li>Fit-checked against a <strong>3D-printed mock-up of the motor</strong> before cutting metal.</li>
+        <li>Worked through several revisions, including one without extra holes, and released a final version on 2/7/25.</li>
+        <li>Set up a separate assembly for welding the sprocket to the flange.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cols tight" style="--n:3;--ar:4/3">
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_sprocket_ps.webp" alt="CAD of the adapter flange" style="object-fit:contain;background:#fff"><figcaption>Adapter part studio</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_printedmotor.webp" alt="3D printed motor mock-up with adapter" style="object-fit:contain;background:#fff"><figcaption>Printed motor setup for fit-checking</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_motorasm.webp" alt="Motor assembly with mounting plate" style="object-fit:contain;background:#fff"><figcaption>Spring 2025 motor assembly</figcaption></figure>
+  </div>
+  <figure>
+    <img src="../../assets/img/tufts-electric-racing/fs_sprocket_dwg.webp" alt="Dimensioned drawing of the sprocket adapter in inches">
+    <figcaption>Dimensioned drawing for manufacturing (inches)</figcaption>
+  </figure>
+  <details>
+    <summary><strong>What the part has to survive</strong></summary>
+    <div class="tbody">
+      <p>A drivetrain adapter is loaded hardest when the motor delivers peak torque, at launch in the acceleration event or coming out of slow corners. That torque passes through three places that can fail, so the design has to check each one:</p>
+      <ul>
+        <li><strong>The spline</strong>, where bearing stress on the teeth can wear or round them.</li>
+        <li><strong>The sprocket joint</strong>, either the weld or the bolts in shear.</li>
+        <li><strong>The flange</strong>, where it is thinnest around the bolt holes.</li>
+      </ul>
+      <p>The chain also pulls sideways on the sprocket, which bends the adapter on the shaft. That is why the sprocket sits close to the flange instead of out on a long hub.</p>
+    </div>
+  </details>
+
+  <!-- ===================== BRAKES ===================== -->
+  <h2 class="h1">Brakes, Pedals &amp; Wheel Corners</h2>
+  <p>FSAE brakes are tightly regulated: the car needs two independent hydraulic circuits, it must lock all four wheels in the brake test at tech inspection, and the pedal box has to withstand a <strong>2,000 N</strong> pedal force without failing. That last number is the design load for the pedal, its pivot and its mounts, and it is the classic FEA case on this subsystem.</p>
+  <figure>
+    <img src="../../assets/img/tufts-electric-racing/fs_pedals.webp" alt="Pedal box assembly with brake and accelerator pedals, master cylinders, sensors and adjustment rails">
+    <figcaption>2025 pedal box: brake and accelerator pedals, master cylinders and sensors on rails that slide to fit different drivers</figcaption>
+  </figure>
+
+  <h4 class="h3">Measuring pedal force</h4>
+  <p>To tune the brakes you need to know how hard drivers actually press, not just the rulebook maximum. I worked on mounting a <strong>50 kg strain-gauge load cell</strong> (a half-bridge sensor) to the brake pedal, and on a test jig that reacts the pedal force through the sensor. Together they let us correlate driver input with brake line pressure.</p>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_loadcell.webp" alt="Load cell mounting block" style="object-fit:contain;background:#fff"><figcaption>Load-cell mount</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_pedalforce.webp" alt="Pedal force sensor housing" style="object-fit:contain;background:#fff"><figcaption>Pedal-force jig</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_sensormount.webp" alt="Pedal sensor mounting bracket" style="object-fit:contain;background:#fff"><figcaption>Pedal sensor mount</figcaption></figure>
+  </div>
+
+  <h4 class="h3">The wheel corner</h4>
+  <p>Brake torque is reacted from the caliper, through the knuckle (upright), into the suspension. I worked in the corner models: the hub and hub nut, the knuckles for all four corners, and the brake caliper model (a Wilwood PS-1). Knuckles and hubs are classic FEA parts because they combine braking, cornering and bump loads at the same time.</p>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_wheel.webp" alt="Wheel and tire assembly" style="object-fit:contain;background:#fff"><figcaption>13″ wheel assembly</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_hub.webp" alt="Front hub and hub nut" style="object-fit:contain;background:#fff"><figcaption>Front hub and hub nut</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_caliper.webp" alt="Brake caliper model" style="object-fit:contain;background:#fff"><figcaption>Caliper model</figcaption></figure>
+  </div>
+
+  <!-- ===================== COCKPIT ===================== -->
+  <h2 class="h1">Cockpit &amp; Driver Protection</h2>
+  <div class="cols" style="--n:2;gap:28px;align-items:start">
+    <div>
+      <h4 class="h3" style="margin-top:.3em">Cockpit floor</h4>
+      <p class="muted" style="font-size:14px;margin-top:-2px">My design · Feb 2025</p>
+      <p>The rules require a solid floor closeout under the driver. I designed ours as a flat pattern sized to the frame, with clearance cutouts and a slot, so it could be <strong>laser-cut</strong> in one piece instead of hand-trimmed.</p>
+    </div>
+    <figure style="margin-top:12px"><img src="../../assets/img/tufts-electric-racing/fs_floor.webp" alt="Flat cockpit floor panel with cutouts"><figcaption>Laser-cut floor pattern</figcaption></figure>
+  </div>
+
+  <h4 class="h3">Firewall fasteners</h4>
+  <p class="muted" style="font-size:14px;margin-top:-2px">My design · Apr 2025</p>
+  <p>On an electric car, a <strong>firewall</strong> has to separate the driver from the high-voltage system. Firewall panels still have to come off for maintenance and inspection, so the fasteners matter. I designed and 3D-printed a set of quick-release fastener concepts, a ball stud and a split-pin clip, to test how well each one held a panel and how easily it came off.</p>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_ballstud.webp" alt="3D printed ball stud fastener" style="object-fit:contain;background:#fff"><figcaption>Ball-stud fastener</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_clip.webp" alt="3D printed split clip fastener" style="object-fit:contain;background:#fff"><figcaption>Split-pin clip</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_steeradapter.webp" alt="Steering column protector adapter" style="object-fit:contain;background:#fff"><figcaption>Steering-column protector</figcaption></figure>
+  </div>
+  <p>I also worked on a <strong>steering-column protector</strong>, a 3D-printed adapter and base attachment that fit over the steering column.</p>
+
+  <!-- ===================== CHASSIS ===================== -->
+  <h2 class="h1">Chassis &amp; Packaging</h2>
+  <p>Packaging means fitting everything into the frame: the driver, motor, differential, accumulator, HV and LV electronics boxes, radiator and pump, coilovers and pedal box. Each one needs space, mounting points and access. All of it has to fit while the frame still meets the rules for the main and front hoops, side impact structure and impact attenuator. I worked in the full-car assemblies, including the one prepared for the Electrical System Form (ESF), the rules document that describes an EV’s high-voltage system, and in the current working chassis model.</p>
+  <div class="cols tight" style="--n:2;--ar:4/3">
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_donottouch.webp" alt="Full car assembly with bodywork, wheels and accumulator" style="object-fit:contain;background:#fff"><figcaption>Full-car assembly with bodywork</figcaption></figure>
+    <figure><img src="../../assets/img/tufts-electric-racing/fs_working.webp" alt="Working chassis model with color-coded tubes and components" style="object-fit:contain;background:#fff"><figcaption>Current working chassis model with color-coded tubes</figcaption></figure>
+  </div>
+  <details>
+    <summary><strong>2026 chassis concepts</strong></summary>
+    <div class="tbody">
+      <p>Early concept studies for the next car: two tube-frame layouts and a body shell sketched around them.</p>
+      <div class="cols tight" style="--n:2;--ar:4/3">
+        <figure><img src="../../assets/img/tufts-electric-racing/fs_chassis26.webp" alt="Tube frame concept" style="object-fit:contain;background:#fff"><figcaption>V2 frame concept</figcaption></figure>
+        <figure><img src="../../assets/img/tufts-electric-racing/fs_shell26.webp" alt="Frame with body shell concept" style="object-fit:contain;background:#fff"><figcaption>Body shell around the frame</figcaption></figure>
+      </div>
+    </div>
+  </details>
+
+  <!-- ===================== FEA APPROACH ===================== -->
+  <h3 class="h2" style="margin-top:2em">How I approach FEA on these parts</h3>
+  <ol>
+    <li><strong>Start from the governing load.</strong> That’s the rule load where one exists (2,000 N on the brake pedal) or a worst-case driving load (peak motor torque, combined braking and cornering at a corner).</li>
+    <li><strong>Constrain it the way it is really held.</strong> Fix bolt holes and pivots where the part mounts, not whole faces, because over-constraining hides stress.</li>
+    <li><strong>Refine the mesh until the answer stops changing</strong>, especially at fillets and holes where stress concentrates.</li>
+    <li><strong>Judge against yield with a factor of safety</strong>, then take material out where stress is low to save weight, and re-run.</li>
+  </ol>
+  <div class="callout"><div class="ci">📐</div><div><p>For a complete FEA write-up with mesh convergence and physical test validation, see <a href="../../projects/me41-design-for-deflection/index.html">Design for Deflection: “The Fishhook”</a>.</p></div></div>
+
+  <h3 class="h2">Reflections</h3>
+  <p>On a car, nothing is designed alone. A sprocket adapter depends on the motor’s spline, the chain line and the frame mounts, and a floor panel depends on the frame’s exact tube positions. Working in shared Onshape documents taught me to design around other people’s interfaces, to fit-check cheaply with printed and laser-cut parts before committing to machined ones, and to keep revisions clearly labeled so the team always knows which version is final.</p>
+
+  <!-- ===================== DOCUMENTS ===================== -->
+  <div class="db-head">
+    <div class="db-title">🗂️ Onshape Documents</div>
+    <div class="db-views"><span class="on">Gallery</span></div>
+  </div>
+  <p class="muted" style="font-size:13px;margin-top:6px">These links open in Onshape and need access to the Tufts Racing workspace.</p>
+  <div class="gallery">
+    <a class="card" href="https://tuftsracing.onshape.com/documents/3f8b8d7d4dcf6df9c723c037/w/b69335421daf49f04d5c4259/e/9b4711bcb4be0900ae71618c"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_sprocket_ps.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Motor Sprocket Adapter v2</div><div class="tags"><span class="tag t-purple">Powertrain</span><span class="tag t-blue">My design</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/3613e0f9bf4d182fadb30d85/w/1f63cd1d5c23955f2a056a0b/e/b355a6b9f6d4776c0da29d66"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_floor.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Cockpit Floor Laser Cut</div><div class="tags"><span class="tag t-gray">Cockpit</span><span class="tag t-blue">My design</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/74976a9f3e1170f475642267/w/a8eb1dc90b4aa702bcb7f578/e/3c0cc195fc4840312dac18be"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_ballstud.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Firewall Fastener Testing</div><div class="tags"><span class="tag t-gray">Cockpit</span><span class="tag t-blue">My design</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/2c37dcddd26b6667a12e69e1/w/0a43e35caed5a10e96e7d121/e/913094d16900489ad5f4abe0"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_pedals.webp" alt=""></div><div class="meta"><div class="nm">⚙️ 2025 Pedals</div><div class="tags"><span class="tag t-green">Brakes</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/9ad4cd31594865b4c52b47c4/w/faa9a7a0de249a3f042ece4f/e/b7667583fd401ca0cd0e0465"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_loadcell.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Load Cell Mounting</div><div class="tags"><span class="tag t-green">Brakes</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/73bfe69f4e0087f894be9f36/w/cebcf89c10c29e8197f03eb3/e/10a62a5b82c4575508b4329a"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_pedalforce.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Pedal Force Sensor</div><div class="tags"><span class="tag t-green">Brakes</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/4abecd2938bba3dea15b8ad7/w/8d7bfbb9ea31ffec45aac6dd/e/bdf6c4c3d43eaeae5910f375"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_knuckleasm.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Knuckles</div><div class="tags"><span class="tag t-green">Wheel corner</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/19b862ade975a3d73a9f4ce6/w/c6ab659cdf7aa7291644aaee/e/77fe1447a9ff2238f43d2e5c"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_hub.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Wheel &amp; Hubs</div><div class="tags"><span class="tag t-green">Wheel corner</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/24ec958e3f17d0eb0a30bf75/w/316ffb6b5dddb23fb3404efb/e/c77b1d42fbc98f97ef917efb"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_caliper.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Wilwood PS-1 Caliper</div><div class="tags"><span class="tag t-green">Brakes</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/ce859f5faa132a5fc344ecef/w/59747e29baae65179fb61239/e/72eb4e550d908d57a0be4067"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_steeradapter.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Steering Column Protector</div><div class="tags"><span class="tag t-gray">Cockpit</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/ad1e6c05b471eb985b9f2a33/w/c4eaebf82d02d695707c96fc/e/c836efb78aa690ba8758170c"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_donottouch.webp" alt=""></div><div class="meta"><div class="nm">⚙️ First Charge Assembly</div><div class="tags"><span class="tag t-yellow">Packaging</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/87542da026fe75acfaf606ba/w/fe901d45cad686b77e0fc693/e/56140aefa9cbfd95b93a1ede"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_working.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Working Chassis Model</div><div class="tags"><span class="tag t-yellow">Packaging</span></div></div></a>
+    <a class="card" href="https://tuftsracing.onshape.com/documents/a1d909ce214e43614fc0cc65/w/15afa5cf43953d362ef036b6/e/fbf1a05091de4f5700090b98"><div class="prev white"><img src="../../assets/img/tufts-electric-racing/fs_chassis26.webp" alt=""></div><div class="meta"><div class="nm">⚙️ Chassis Idea 2026</div><div class="tags"><span class="tag t-yellow">Chassis</span></div></div></a>
+  </div>
+</main>
+
+</main>
+
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="../../index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="../../assets/site.js"></script>
+
+</body>
+</html>

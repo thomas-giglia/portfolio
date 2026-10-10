@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extendo-Sprayer · Thomas Giglia</title>
+<meta name="description" content="An assistive device that lets a user with limited shoulder mobility apply detangling spray on her own: a relocated trigger, a curved nozzle extension and printed clips.">
+<meta property="og:title" content="Extendo-Sprayer">
+<meta property="og:description" content="An assistive device that lets a user with limited shoulder mobility apply detangling spray on her own: a relocated trigger, a curved nozzle extension and printed clips.">
+<meta property="og:image" content="/assets/img/me40-extendo-sprayer/sp_final.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧴</text></svg>">
+<link rel="stylesheet" href="../../assets/site.css">
+
+<script>try{var t=localStorage.getItem('tg-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="home" href="../../index.html">📁 Thomas Giglia</a><span class="sep">/</span><a href="../../index.html#course">Coursework</a><span class="sep">/</span><span class="cur">🧴 Extendo-Sprayer</span></nav>
+  <div class="tb-right"><a href="https://github.com/thomas-giglia" style="text-decoration:none;padding:2px 8px">GitHub</a><button id="themeBtn" type="button" title="Toggle light / dark">◐</button></div>
+</div>
+<div class="cover"><img src="../../assets/img/me40-extendo-sprayer/sp_final.webp" alt="" style="object-position:center 40%"></div>
+<main class="page">
+<div class="icon" aria-hidden="true">🧴</div>
+<h1 class="title">Extendo-Sprayer</h1>
+<p class="subtitle">ME 40 · Project 2 · with Elizabeth Choi & Grace Jorjorian</p>
+<div class="props">
+<div class="prop"><div class="k">☰ Tags</div><div class="v"><span class="tag t-purple">User-centered design</span><span class="tag t-orange">3D printing</span><span class="tag t-gray">Laser cutting</span></div></div>
+<div class="prop"><div class="k">📚 Course</div><div class="v">ME 40 Engineering Design</div></div>
+<div class="prop"><div class="k">📅 Term</div><div class="v">Spring 2025</div></div>
+</div><hr>
+  <div class="callout blue"><div class="ci">💡</div><div>
+    <p><strong>Problem:</strong> our user couldn’t apply hair detangling spray on her own when getting ready in the morning, because of limited shoulder mobility and hand strength. Our goal was a device that lets her do it independently, within her range of strength and motion.</p>
+  </div></div>
+
+  <div class="cols" style="--n:2;gap:28px;align-items:start">
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_final.webp" alt="Extendo-Sprayer: spray bottle with 3D printed clips, trigger ring and extension straws"><figcaption>The Extendo-Sprayer on the user’s own detangler bottle</figcaption></figure>
+    <div>
+      <h4 class="h3" style="margin-top:.3em">How it works</h4>
+      <ul>
+        <li>The original trigger is moved off the bottle onto a <strong>flexible straw</strong>, so it can be held in front of her, where her grip and mobility are best.</li>
+        <li>A <strong>stiff, curved nozzle straw</strong> carries the spray over her shoulder to the back of her head, which is the hardest place to reach and where most tangles are.</li>
+        <li>A 3D-printed <strong>trigger ring</strong> gives her thumb a hold, so the whole hand squeezes instead of one finger.</li>
+        <li>Two printed <strong>clips</strong> hold the trigger on the bottle when it isn’t in use.</li>
+        <li>A laser-cut <strong>cup-holder insert</strong> holds the bottle on her wheelchair arm.</li>
+        <li>It screws directly onto her preferred brand of detangler, so there is nothing to refill or transfer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="h1">User Needs → Engineering Requirements</h2>
+  <p>We interviewed the user and her family, ranked her needs, and turned the top ones into measurable targets:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>User need</th><th style="text-align:right">Importance</th><th>Metric</th><th style="text-align:right">Marginal</th><th style="text-align:right">Ideal</th></tr></thead>
+    <tbody>
+      <tr><td>Independent application</td><td class="num">5/5</td><td>Time to set up for first use</td><td class="num">360 s</td><td class="num">60 s</td></tr>
+      <tr><td>Position nozzle at the back of the hair</td><td class="num">5/5</td><td>Nozzle-to-hair distance</td><td class="num">24 cm</td><td class="num">30 cm</td></tr>
+      <tr><td>Ease of activating the trigger</td><td class="num">4/5</td><td>Force to press trigger</td><td class="num">4 N</td><td class="num">1 N</td></tr>
+      <tr><td>Comfortable weight and grip</td><td class="num">4/5</td><td>Torque on shoulder</td><td class="num">3 N·m</td><td class="num">1.5 N·m</td></tr>
+      <tr><td>Safe</td><td class="num">4/5</td><td>Edge radius</td><td class="num">2 mm</td><td class="num">3 mm</td></tr>
+      <tr><td>Low leakage</td><td class="num">3/5</td><td>Loss per use</td><td class="num">3 mL</td><td class="num">0 mL</td></tr>
+      <tr><td>Intuitive</td><td class="num">2/5</td><td>Time to read instructions</td><td class="num">300 s</td><td class="num">30 s</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 class="h1">Ideation</h2>
+  <p>Market research covered products that reach the back of the head (a hands-free hair-dryer stand, a long-reach brush) and products that carry liquid through a tube (a “giraffe” long-straw water bottle). The biggest inspiration was a <strong>garden sprayer</strong>: a tank connected by a flexible hose to a wand aimed at one spot. We pitched five concepts:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Concept</th><th>Pros</th><th>Cons</th></tr></thead>
+    <tbody>
+      <tr><td>Reach extender</td><td>Reaches the whole head. A mirror on the back works with her vanity mirror.</td><td>Higher holding force, and it doesn’t stay in place.</td></tr>
+      <tr><td>Bottle on a stand</td><td>No weight in hand except the trigger.</td><td>Bulky, hard to travel with, and she has to reposition her chair often.</td></tr>
+      <tr><td><strong>Giraffe-straw sprayer</strong></td><td>Light in the hand, stays positioned, and the bottle’s weight rests on the chair.</td><td>Still needs aiming, and a separate trigger adds complexity.</td></tr>
+      <tr><td>Motorized arm</td><td>Joystick control, nothing to hold.</td><td>Large, expensive, needs power and maintenance.</td></tr>
+      <tr><td>Headband “halo” sprinkler</td><td>Sprays most of the hair in one action.</td><td>Harder to control where the spray goes.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_inspo_garden.webp" alt="Garden pump sprayer" style="object-fit:contain;background:#fff"><figcaption>Inspiration: garden sprayer</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_concept.webp" alt="Concept sketch of bottle with coiled tube" style="object-fit:contain;background:#fff"><figcaption>Early concept sketch</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_hand.webp" alt="Hand holding the trigger with thumb in the ring" style="object-fit:contain;background:#fff"><figcaption>Thumb-ring grip</figcaption></figure>
+  </div>
+
+  <h2 class="h1">Prototyping</h2>
+  <p>We modeled the printed parts in CAD: the nozzle adapter, the two trigger clips, the trigger ring and a cup-holder insert. Then we iterated on fit using the real bottle and trigger.</p>
+  <div class="cols tight" style="--n:3;--ar:1/1">
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_clip_cad.webp" alt="CAD of trigger clip" style="object-fit:contain;background:#fff"><figcaption>Trigger clip (CAD)</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_ring_cad.webp" alt="CAD of bottle ring hook" style="object-fit:contain;background:#fff"><figcaption>Bottle hook (CAD)</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_holder_cad.webp" alt="CAD of cup holder" style="object-fit:contain;background:#fff"><figcaption>Cup-holder concept (CAD)</figcaption></figure>
+  </div>
+  <div class="cols tight" style="--n:3;--ar:3/4">
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_full.webp" alt="Full device with long nozzle straw"><figcaption>Full device with nozzle extension</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_mounted.webp" alt="Device in cup holder on a chair arm"><figcaption>Mounted in the cup holder</figcaption></figure>
+    <figure><img src="../../assets/img/me40-extendo-sprayer/sp_cupholder.webp" alt="Laser-cut acrylic insert in a cup holder"><figcaption>Laser-cut cup-holder insert</figcaption></figure>
+  </div>
+
+  <h2 class="h1">User Testing</h2>
+  <p>We wrote a testing plan before handing the device over, with pass/fail and scored observations from video:</p>
+  <ul>
+    <li><strong>Effectiveness:</strong> can she press the trigger, get spray out, and reach the back of her hair? Does the nozzle make a mist rather than a stream? Can she follow the instructions without strain?</li>
+    <li><strong>Efficiency:</strong> time to read the instructions (goal 2:00), time to set up (2:00), time to apply spray (0:45), and the number of trigger presses to prime the device (about 30 on first use).</li>
+    <li><strong>Satisfaction:</strong> how much she enjoys using it, and how much she likes how it looks.</li>
+  </ul>
+  <p>We also wrote illustrated setup instructions for a caregiver and step-by-step use instructions for the user.</p>
+
+  <h3 class="h2">Future directions</h3>
+  <ul>
+    <li>Combine the clips and the acrylic cup-holder supports into one part, so setup is simpler and the bottle is more stable.</li>
+    <li>Use semi-rigid tubing for the nozzle extension, so it can be bent and re-aimed.</li>
+    <li>Use a smaller trigger with an ergonomic grip, sized for small hands.</li>
+  </ul>
+
+</main>
+
+<footer class="site-foot"><span>© Thomas Giglia</span><span><a href="../../index.html">All projects</a> · <a href="https://github.com/thomas-giglia">GitHub</a></span></footer>
+<script src="../../assets/site.js"></script>
+
+</body>
+</html>
